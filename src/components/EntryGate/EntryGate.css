@@ -1,0 +1,492 @@
+/* Stage 19A-6: Aspiration Funnel Mine entrance polish */
+
+body:has(input[placeholder*="RIFT"]) h1,
+body:has(input[placeholder*="CLEARANCE"]) h1,
+body:has(input[value="ASPIRE!"]) h1 {
+  color: #d8bbff;
+  -webkit-text-stroke: 1.5px #81d8d0;
+  text-shadow:
+    0 2px 0 #2c0b4f,
+    0 4px 0 #160527,
+    0 0 8px rgba(129, 216, 208, 0.95),
+    0 0 18px rgba(129, 216, 208, 0.7),
+    0 0 34px rgba(191, 120, 255, 0.65),
+    0 0 58px rgba(255, 255, 255, 0.24);
+  animation: mineTitlePulse 2.3s ease-in-out infinite;
+}
+
+body:has(input[placeholder*="RIFT"]) h1::before,
+body:has(input[placeholder*="CLEARANCE"]) h1::before,
+body:has(input[value="ASPIRE!"]) h1::before {
+  content: "✦ ";
+  color: #81d8d0;
+  -webkit-text-stroke: 0;
+  text-shadow:
+    0 0 8px rgba(129, 216, 208, 1),
+    0 0 18px rgba(255, 255, 255, 0.95),
+    0 0 32px rgba(191, 120, 255, 0.75);
+  animation: diamondTwinkle 1.4s ease-in-out infinite alternate;
+}
+
+body:has(input[placeholder*="RIFT"]) h1::after,
+body:has(input[placeholder*="CLEARANCE"]) h1::after,
+body:has(input[value="ASPIRE!"]) h1::after {
+  content: " ✦";
+  color: #81d8d0;
+  -webkit-text-stroke: 0;
+  text-shadow:
+    0 0 8px rgba(129, 216, 208, 1),
+    0 0 18px rgba(255, 255, 255, 0.95),
+    0 0 32px rgba(191, 120, 255, 0.75);
+  animation: diamondTwinkle 1.8s ease-in-out infinite alternate;
+}
+
+body:has(input[placeholder*="RIFT"]) p,
+body:has(input[placeholder*="CLEARANCE"]) p,
+body:has(input[value="ASPIRE!"]) p {
+  text-shadow:
+    0 0 6px rgba(129, 216, 208, 0.45),
+    0 0 14px rgba(191, 120, 255, 0.25);
+}
+
+body:has(input[placeholder*="RIFT"]) .absolute,
+body:has(input[placeholder*="CLEARANCE"]) .absolute,
+body:has(input[value="ASPIRE!"]) .absolute {
+  filter:
+    drop-shadow(0 0 7px rgba(129, 216, 208, 0.95))
+    drop-shadow(0 0 16px rgba(255, 255, 255, 0.45));
+  animation: diamondFloat 2.2s ease-in-out infinite alternate;
+}
+
+body.mine-rumble {
+  animation: mineRumble 0.52s ease-in-out;
+}
+
+body.mine-rumble h1 {
+  animation:
+    mineRumble 0.52s ease-in-out,
+    mineTitlePulse 1.1s ease-in-out infinite;
+}
+
+body.mine-rumble .absolute {
+  animation:
+    diamondBurst 0.52s ease-in-out,
+    diamondFloat 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes mineTitlePulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow:
+      0 2px 0 #2c0b4f,
+      0 4px 0 #160527,
+      0 0 8px rgba(129, 216, 208, 0.95),
+      0 0 18px rgba(129, 216, 208, 0.7),
+      0 0 34px rgba(191, 120, 255, 0.65),
+      0 0 58px rgba(255, 255, 255, 0.24);
+  }
+
+  50% {
+    transform: scale(1.025);
+    text-shadow:
+      0 2px 0 #2c0b4f,
+      0 5px 0 #160527,
+      0 0 12px rgba(129, 216, 208, 1),
+      0 0 26px rgba(129, 216, 208, 0.9),
+      0 0 48px rgba(191, 120, 255, 0.9),
+      0 0 78px rgba(255, 255, 255, 0.35);
+  }
+}
+
+@keyframes diamondTwinkle {
+  0% {
+    opacity: 0.58;
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.12) rotate(3deg);
+  }
+}
+
+@keyframes diamondFloat {
+  0% {
+    opacity: 0.45;
+    transform: translateY(0) scale(0.94);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.08);
+  }
+}
+
+@keyframes diamondBurst {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scale(1.45);
+  }
+
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+@keyframes mineRumble {
+  0% { transform: translate(0, 0); }
+  12% { transform: translate(-3px, 2px); }
+  24% { transform: translate(3px, -2px); }
+  36% { transform: translate(-4px, 1px); }
+  48% { transform: translate(4px, 2px); }
+  60% { transform: translate(-2px, -3px); }
+  72% { transform: translate(2px, 2px); }
+  84% { transform: translate(-1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(input[placeholder*="RIFT"]) h1,
+  body:has(input[placeholder*="CLEARANCE"]) h1,
+  body:has(input[value="ASPIRE!"]) h1,
+  body:has(input[placeholder*="RIFT"]) .absolute,
+  body:has(input[placeholder*="CLEARANCE"]) .absolute,
+  body:has(input[value="ASPIRE!"]) .absolute,
+  body.mine-rumble {
+    animation: none;
+  }
+}
+
+/* Stage 19A-8: Strong two-line mine message */
+body:has(input[placeholder*="RIFT"]) p,
+body:has(input[value="ASPIRE!"]) p {
+  white-space: pre-line;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Stage 19Q: Admiration Mine Integrator front-page atmosphere */
+body:has(input[placeholder*="RIFT"]) main {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 215, 120, 0.18), transparent 24%),
+    radial-gradient(circle at 78% 18%, rgba(129, 232, 223, 0.16), transparent 22%),
+    radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.22), transparent 32%),
+    linear-gradient(135deg, #030204 0%, #09020f 42%, #12071b 68%, #020202 100%) !important;
+}
+
+body:has(input[placeholder*="RIFT"]) main::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  opacity: 0.68;
+  background:
+    linear-gradient(115deg, transparent 0 18%, rgba(255, 215, 120, 0.18) 19%, transparent 21% 42%, rgba(129, 232, 223, 0.14) 43%, transparent 45% 100%),
+    linear-gradient(35deg, transparent 0 28%, rgba(255, 255, 255, 0.08) 29%, transparent 31% 100%),
+    radial-gradient(circle at 30% 35%, rgba(255, 215, 120, 0.16), transparent 6%),
+    radial-gradient(circle at 65% 58%, rgba(129, 232, 223, 0.13), transparent 7%);
+  filter: blur(0.2px);
+  animation: mineShimmer 8s ease-in-out infinite alternate;
+}
+
+body:has(input[placeholder*="RIFT"]) main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.8;
+  background-image:
+    radial-gradient(circle, rgba(129, 232, 223, 0.75) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255, 215, 120, 0.65) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(168, 85, 247, 0.7) 0 2px, transparent 3px);
+  background-size: 260px 260px, 180px 180px, 340px 340px;
+  background-position: 20px 40px, 120px 90px, 60px 180px;
+  animation: minePulseDots 5s ease-in-out infinite alternate;
+}
+
+/* Glittered purple + Tiffany-blue hero finish */
+body:has(input[placeholder*="RIFT"]) h1 {
+  color: transparent !important;
+  background-image: linear-gradient(90deg, #b76dff, #81e8df, #ffffff, #b76dff) !important;
+  background-size: 220% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  text-shadow:
+    0 0 18px rgba(129, 232, 223, 0.52),
+    0 0 34px rgba(168, 85, 247, 0.58),
+    0 0 54px rgba(255, 215, 120, 0.18) !important;
+  animation: mineTextGlint 5.5s linear infinite;
+}
+
+/* Make click/tap feel like the Mine reacted */
+body:has(input[placeholder*="RIFT"]) button:active {
+  animation: mineRumble 0.42s ease-in-out;
+}
+
+/* Stronger button glow, still preserving existing button structure */
+body:has(input[placeholder*="RIFT"]) button {
+  box-shadow:
+    0 0 0 rgba(129, 232, 223, 0),
+    0 0 18px rgba(168, 85, 247, 0.13);
+}
+
+body:has(input[placeholder*="RIFT"]) button:hover {
+  box-shadow:
+    0 0 22px rgba(129, 232, 223, 0.25),
+    0 0 34px rgba(168, 85, 247, 0.24) !important;
+}
+
+@keyframes mineShimmer {
+  0% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+    opacity: 0.46;
+  }
+  100% {
+    transform: translate3d(1.5%, 1%, 0) scale(1.04);
+    opacity: 0.78;
+  }
+}
+
+@keyframes minePulseDots {
+  0% {
+    opacity: 0.42;
+    filter: drop-shadow(0 0 2px rgba(129, 232, 223, 0.35));
+  }
+  100% {
+    opacity: 0.86;
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.55));
+  }
+}
+
+@keyframes mineTextGlint {
+  0% { background-position: 0% center; }
+  100% { background-position: 220% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(input[placeholder*="RIFT"]) main::before,
+  body:has(input[placeholder*="RIFT"]) main::after,
+  body:has(input[placeholder*="RIFT"]) h1,
+  body:has(input[placeholder*="RIFT"]) button:active {
+    animation: none !important;
+  }
+}
+
+/* Stage 19Q-2: Moving top strip active brand label */
+body:has(input[placeholder*="RIFT"]) header button {
+  min-width: 330px;
+  font-size: clamp(0.72rem, 1.2vw, 1rem) !important;
+  letter-spacing: 0.24em !important;
+  font-weight: 950 !important;
+  color: #81e8df !important;
+  text-shadow:
+    0 0 10px rgba(129, 232, 223, 0.75),
+    0 0 22px rgba(168, 85, 247, 0.65),
+    0 0 34px rgba(255, 215, 120, 0.24);
+  border-color: rgba(129, 232, 223, 0.35) !important;
+  background:
+    linear-gradient(90deg, rgba(8, 6, 12, 0.88), rgba(31, 18, 45, 0.82), rgba(8, 6, 12, 0.88)) !important;
+  background-size: 220% auto !important;
+  animation: topStripSignal 4.8s ease-in-out infinite alternate;
+}
+
+@keyframes topStripSignal {
+  0% {
+    background-position: 0% center;
+    transform: translateX(-2px);
+    box-shadow:
+      0 0 16px rgba(129, 232, 223, 0.16),
+      0 0 28px rgba(168, 85, 247, 0.12);
+  }
+  100% {
+    background-position: 100% center;
+    transform: translateX(2px);
+    box-shadow:
+      0 0 24px rgba(129, 232, 223, 0.28),
+      0 0 42px rgba(168, 85, 247, 0.22);
+  }
+}
+
+@media (max-width: 650px) {
+  body:has(input[placeholder*="RIFT"]) header button {
+    min-width: 220px;
+    letter-spacing: 0.12em !important;
+    font-size: 0.68rem !important;
+  }
+}
+
+/* Stage 19Q-4: Make Admiration Mine Integrator Active pop when header bar breathes */
+body:has(input[placeholder*="RIFT"]) header .mine-active-notice {
+  color: #f7fbff !important;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(44, 44, 50, 0.46),
+      rgba(129, 232, 223, 0.24),
+      rgba(255, 215, 120, 0.22),
+      rgba(183, 92, 255, 0.24),
+      rgba(44, 44, 50, 0.46)
+    ) !important;
+  background-size: 260% auto !important;
+  border: 1px solid rgba(129, 232, 223, 0.45) !important;
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.95),
+    0 0 16px rgba(129, 232, 223, 0.95),
+    0 0 28px rgba(183, 92, 255, 0.85),
+    0 0 42px rgba(255, 215, 120, 0.45) !important;
+  box-shadow:
+    0 0 18px rgba(129, 232, 223, 0.28),
+    0 0 34px rgba(183, 92, 255, 0.18),
+    inset 0 0 18px rgba(255, 255, 255, 0.08) !important;
+  animation: mineNoticeGlowPop 4.8s ease-in-out infinite !important;
+}
+
+@keyframes mineNoticeGlowPop {
+  0% {
+    transform: translateX(-8px) scale(0.985);
+    opacity: 0.52;
+    filter: grayscale(0.45) brightness(0.72);
+    background-position: 0% center;
+    box-shadow:
+      0 0 6px rgba(129, 232, 223, 0.12),
+      inset 0 0 12px rgba(255, 255, 255, 0.03);
+  }
+
+  38% {
+    opacity: 0.78;
+    filter: grayscale(0.15) brightness(1);
+  }
+
+  50% {
+    transform: translateX(0) scale(1.035);
+    opacity: 1;
+    filter: grayscale(0) brightness(1.45);
+    background-position: 55% center;
+    box-shadow:
+      0 0 22px rgba(129, 232, 223, 0.52),
+      0 0 42px rgba(183, 92, 255, 0.42),
+      0 0 58px rgba(255, 215, 120, 0.22),
+      inset 0 0 24px rgba(255, 255, 255, 0.11);
+  }
+
+  100% {
+    transform: translateX(8px) scale(0.985);
+    opacity: 0.56;
+    filter: grayscale(0.5) brightness(0.78);
+    background-position: 100% center;
+    box-shadow:
+      0 0 6px rgba(129, 232, 223, 0.12),
+      inset 0 0 12px rgba(255, 255, 255, 0.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(input[placeholder*="RIFT"]) header .mine-active-notice {
+    animation: none !important;
+    opacity: 1;
+    filter: none;
+  }
+}
+
+/* Stage 19Q-5: Exact top bar layout
+   GENIUNAIRE MASTERMINDS [ Admiration Mine Integrator Active ] AI'ality Network */
+body:has(input[placeholder*="RIFT"]) header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+}
+
+body:has(input[placeholder*="RIFT"]) header .mine-active-notice {
+  flex: 1 1 auto;
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: clamp(0.82rem, 1.35vw, 1.12rem);
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(48, 48, 54, 0.48),
+      rgba(129, 232, 223, 0.28),
+      rgba(255, 215, 120, 0.24),
+      rgba(183, 92, 255, 0.28),
+      rgba(48, 48, 54, 0.48)
+    );
+  background-size: 260% auto;
+  border: 1px solid rgba(129, 232, 223, 0.48);
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.95),
+    0 0 16px rgba(129, 232, 223, 0.95),
+    0 0 30px rgba(183, 92, 255, 0.85),
+    0 0 46px rgba(255, 215, 120, 0.48);
+  box-shadow:
+    0 0 18px rgba(129, 232, 223, 0.28),
+    0 0 34px rgba(183, 92, 255, 0.2),
+    inset 0 0 18px rgba(255, 255, 255, 0.08);
+  animation: mineNoticeGlowPop 4.8s ease-in-out infinite;
+}
+
+body:has(input[placeholder*="RIFT"]) header button {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: unset !important;
+  white-space: nowrap !important;
+  letter-spacing: 0.11em !important;
+  font-size: 0.72rem !important;
+  color: #ffffff !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+@keyframes mineNoticeGlowPop {
+  0% {
+    transform: translateX(-6px) scale(0.985);
+    opacity: 0.55;
+    filter: grayscale(0.5) brightness(0.72);
+    background-position: 0% center;
+  }
+
+  50% {
+    transform: translateX(0) scale(1.04);
+    opacity: 1;
+    filter: grayscale(0) brightness(1.5);
+    background-position: 55% center;
+  }
+
+  100% {
+    transform: translateX(6px) scale(0.985);
+    opacity: 0.58;
+    filter: grayscale(0.48) brightness(0.78);
+    background-position: 100% center;
+  }
+}
+
+@media (max-width: 760px) {
+  body:has(input[placeholder*="RIFT"]) header {
+    flex-wrap: wrap !important;
+  }
+
+  body:has(input[placeholder*="RIFT"]) header .mine-active-notice {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+    margin: 8px 0 0;
+    font-size: 0.68rem;
+    letter-spacing: 0.09em;
+  }
+}
